@@ -1,0 +1,25 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: KoiCrapNft
+    network: optimism-goerli
+    source:
+      address: "0xf7F023d94E013De2239f9827BC242772763d1456"
+      abi: KoiCrapNft
+      startBlock: 18211232
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - KoiCrapNft
+        - User
+      abis:
+        - name: KoiCrapNft
+          file: KoiCrapNft/abis/KoiCrapNft.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: KoiCrapNft/KoiCrapNft.wasm

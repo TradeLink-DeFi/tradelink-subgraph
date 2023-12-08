@@ -1,0 +1,25 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: GoldenBullNft
+    network: chapel
+    source:
+      address: "0xf7F023d94E013De2239f9827BC242772763d1456"
+      abi: GoldenBullNft
+      startBlock: 35655526
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - GoldenBullNft
+        - User
+      abis:
+        - name: GoldenBullNft
+          file: ./abis/GoldenBullNft.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/golden-bull-nft.ts

@@ -1,0 +1,11 @@
+{
+  "name": "Cyber Bob",
+  "descrition": "Bob the cyber bear nft",
+  "image": "https://tradelink-nfts.s3.ap-southeast-1.amazonaws.com/cyb1.jpeg",
+  "attributes": [
+    {
+      "trait_type": "type",
+      "value": "machine"
+    }
+  ]
+}

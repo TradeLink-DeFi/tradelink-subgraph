@@ -1,0 +1,25 @@
+type BadApeNft @entity {
+  id: ID!
+  tokenId: BigInt!
+  contentURI: String!
+  createdAtTimestamp: BigInt!
+  creator: User!
+  owner: User!
+}
+
+type CyberBearNft @entity {
+  id: ID!
+  tokenId: BigInt!
+  contentURI: String!
+  createdAtTimestamp: BigInt!
+  creator: User!
+  owner: User!
+}
+
+type User @entity {
+  id: ID!
+  badApeNfts: [BadApeNft!]! @derivedFrom(field: "owner")
+  badApeNftsCreated: [BadApeNft!]! @derivedFrom(field: "creator")
+  cyberBearNfts: [CyberBearNft!]! @derivedFrom(field: "owner")
+  CyberBearNftsCreated: [CyberBearNft!]! @derivedFrom(field: "creator")
+}

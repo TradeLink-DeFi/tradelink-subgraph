@@ -1,0 +1,13 @@
+type KoiCrapNft @entity {
+  id: ID!
+  tokenId: BigInt!
+  contentURI: String!
+  createdAtTimestamp: BigInt!
+  creator: User!
+  owner: User!
+}
+type User @entity {
+  id: ID!
+  koiCrapNft: [KoiCrapNft!]! @derivedFrom(field: "owner")
+  KoiCrapNftCreated: [KoiCrapNft!]! @derivedFrom(field: "creator")
+}

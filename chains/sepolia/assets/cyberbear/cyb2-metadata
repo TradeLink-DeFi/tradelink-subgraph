@@ -1,0 +1,11 @@
+{
+  "name": "Cyber Drake",
+  "descrition": "Drake the cyber bear nft",
+  "image": "https://tradelink-nfts.s3.ap-southeast-1.amazonaws.com/cyb2.jpeg",
+  "attributes": [
+    {
+      "trait_type": "type",
+      "value": "machine"
+    }
+  ]
+}

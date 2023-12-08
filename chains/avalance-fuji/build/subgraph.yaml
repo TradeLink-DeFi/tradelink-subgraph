@@ -1,0 +1,25 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Golem8bitNft
+    network: fuji
+    source:
+      address: "0xf7F023d94E013De2239f9827BC242772763d1456"
+      abi: Golem8bitNft
+      startBlock: 28292340
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Golem8bitNft
+        - User
+      abis:
+        - name: Golem8bitNft
+          file: Golem8bitNft/abis/Golem8bitNft.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: Golem8bitNft/Golem8bitNft.wasm

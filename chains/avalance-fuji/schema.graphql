@@ -1,0 +1,13 @@
+type Golem8bitNft @entity {
+  id: ID!
+  tokenId: BigInt!
+  contentURI: String!
+  createdAtTimestamp: BigInt!
+  creator: User!
+  owner: User!
+}
+type User @entity {
+  id: ID!
+  golem8bitNft: [Golem8bitNft!]! @derivedFrom(field: "owner")
+  golem8bitNftCreated: [Golem8bitNft!]! @derivedFrom(field: "creator")
+}

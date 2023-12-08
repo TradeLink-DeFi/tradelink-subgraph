@@ -1,0 +1,12 @@
+{
+  "sepolia": {
+    "BadApe": {
+      "address": "0x16bC29a24f74FB915f78eB7d2104684CaD3356b6",
+      "startBlock": 4800549
+    },
+    "CyberBear": {
+      "address": "0x70781b27df4c2f7ae884c6c352d82027b5892801",
+      "startBlock": 4787095
+    }
+  }
+}

@@ -1,0 +1,46 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: BadApe
+    network: sepolia
+    source:
+      address: "0x16bC29a24f74FB915f78eB7d2104684CaD3356b6"
+      abi: BadApe
+      startBlock: 4800549
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - BadApeNft
+        - User
+      abis:
+        - name: BadApe
+          file: ./abis/BadApe.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/bad-ape.ts
+  - kind: ethereum
+    name: CyberBear
+    network: sepolia
+    source:
+      address: "0x70781b27df4c2f7ae884c6c352d82027b5892801"
+      abi: CyberBear
+      startBlock: 4787095
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CyberBearNft
+        - User
+      abis:
+        - name: CyberBear
+          file: ./abis/CyberBear.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/cyber-bear.ts
