@@ -1,0 +1,30 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TradeLinkCCIPV1
+    network: mumbai
+    source:
+      address: "0x6F45F16a3F159985983953c5c1938B8E00345A1d"
+      abi: TradeLinkCCIPV1
+      startBlock: 43356821
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - OwnershipTransferRequested
+        - OwnershipTransferred
+        - Success
+      abis:
+        - name: TradeLinkCCIPV1
+          file: TradeLinkCCIPV1/abis/TradeLinkCCIPV1.json
+      eventHandlers:
+        - event: OwnershipTransferRequested(indexed address,indexed address)
+          handler: handleOwnershipTransferRequested
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Success(uint256,uint256,uint64,uint64,address,address)
+          handler: handleSuccess
+      file: TradeLinkCCIPV1/TradeLinkCCIPV1.wasm

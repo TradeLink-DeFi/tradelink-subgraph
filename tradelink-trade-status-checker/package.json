@@ -1,0 +1,21 @@
+{
+  "name": "tradelink-trade-status-checker",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "buildmumbai": "graph build --nework mumbai",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ tradelink-trade-status-checker",
+    "create-local": "graph create --node http://localhost:8020/ tradelink-trade-status-checker",
+    "remove-local": "graph remove --node http://localhost:8020/ tradelink-trade-status-checker",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 tradelink-trade-status-checker",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.62.0",
+    "@graphprotocol/graph-ts": "0.30.0"
+  },
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
+}
