@@ -1,6 +1,6 @@
 # TradeLink Subgraph
 
-Subgraph url list
+Subgraph NFT url list
 
 sepolia => https://api.thegraph.com/subgraphs/name/supanut1911/tradelink-nft-sepolia
 
@@ -11,3 +11,11 @@ bsc => https://api.thegraph.com/subgraphs/name/supanut1911/tradelink-nft-bsc-cha
 fuji => https://api.thegraph.com/subgraphs/name/supanut1911/tradelink-nft-avalance-fuji
 
 op => https://api.thegraph.com/subgraphs/name/supanut1911/tradelink-nft-optimism-goerli
+
+Subgraph trade-status-checker
+
+sepolia => https://api.studio.thegraph.com/query/59650/tradelink-trade-status-checker/v0.0.1
+
+mumbai => https://api.studio.thegraph.com/query/59650/tradelink-trade-status-checker/v0.0.2
+
+fuji => mumbai => https://api.studio.thegraph.com/query/59650/tradelink-trade-status-checker/v0.0.3

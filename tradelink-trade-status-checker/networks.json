@@ -10,5 +10,11 @@
       "address": "0x6F45F16a3F159985983953c5c1938B8E00345A1d",
       "startBlock": 43356821
     }
+  },
+  "fuji": {
+    "TradeLinkCCIPV1": {
+      "address": "0xeD659a6AF89F173E0DdB3EDF4e74B3708ee62b68",
+      "startBlock": 28422361
+    }
   }
 }
