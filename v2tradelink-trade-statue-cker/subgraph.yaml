@@ -4,16 +4,18 @@ schema:
 dataSources:
   - kind: ethereum
     name: TradeLinkCCIPV1
-    network: fuji
+    network: sepolia
     source:
-      address: "0xeD659a6AF89F173E0DdB3EDF4e74B3708ee62b68"
+      address: "0x6Cc3f2e4672FcB347c4878C4702df60048827072"
       abi: TradeLinkCCIPV1
-      startBlock: 28422361
+      startBlock: 4853390
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
+        - CreateFulfill
+        - CreateOffer
         - OwnershipTransferRequested
         - OwnershipTransferred
         - Success
@@ -21,6 +23,10 @@ dataSources:
         - name: TradeLinkCCIPV1
           file: ./abis/TradeLinkCCIPV1.json
       eventHandlers:
+        - event: CreateFulfill(uint256,address)
+          handler: handleCreateFulfill
+        - event: CreateOffer(uint256,address)
+          handler: handleCreateOffer
         - event: OwnershipTransferRequested(indexed address,indexed address)
           handler: handleOwnershipTransferRequested
         - event: OwnershipTransferred(indexed address,indexed address)

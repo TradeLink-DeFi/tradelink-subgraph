@@ -6,7 +6,8 @@
         "internalType": "uint256",
         "name": "_sourceSelector",
         "type": "uint256"
-      }
+      },
+      { "internalType": "address", "name": "_linkToken", "type": "address" }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -40,6 +41,44 @@
     "type": "error"
   },
   { "inputs": [], "name": "NothingToWithdraw", "type": "error" },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "fulfillId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "ownerFulfill",
+        "type": "address"
+      }
+    ],
+    "name": "CreateFulfill",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "offerId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "ownerOffer",
+        "type": "address"
+      }
+    ],
+    "name": "CreateOffer",
+    "type": "event"
+  },
   {
     "anonymous": false,
     "inputs": [
@@ -245,65 +284,7 @@
             "name": "fulfillOfferId",
             "type": "uint256"
           },
-          {
-            "components": [
-              {
-                "internalType": "uint256",
-                "name": "offerId",
-                "type": "uint256"
-              },
-              {
-                "internalType": "uint64",
-                "name": "destChainSelector",
-                "type": "uint64"
-              },
-              {
-                "internalType": "address",
-                "name": "destChainAddress",
-                "type": "address"
-              },
-              {
-                "internalType": "address[]",
-                "name": "tokenIn",
-                "type": "address[]"
-              },
-              {
-                "internalType": "uint256[]",
-                "name": "tokenInAmount",
-                "type": "uint256[]"
-              },
-              {
-                "internalType": "address[]",
-                "name": "nftIn",
-                "type": "address[]"
-              },
-              {
-                "internalType": "uint256[]",
-                "name": "nftInId",
-                "type": "uint256[]"
-              },
-              {
-                "internalType": "address",
-                "name": "feeAddress",
-                "type": "address"
-              },
-              {
-                "internalType": "address",
-                "name": "ownerFulfillAddress",
-                "type": "address"
-              },
-              {
-                "internalType": "address",
-                "name": "traderFulfillAddress",
-                "type": "address"
-              },
-              { "internalType": "bool", "name": "isBridge", "type": "bool" },
-              { "internalType": "bool", "name": "isSuccess", "type": "bool" }
-            ],
-            "internalType": "struct TradeLinkCCIPV1.FulfillOffer",
-            "name": "fulfillInfo",
-            "type": "tuple"
-          }
+          { "internalType": "bytes", "name": "fulfillInfo", "type": "bytes" }
         ],
         "internalType": "struct TradeLinkCCIPV1.MessagePayload",
         "name": "decoded",
@@ -393,6 +374,65 @@
     "inputs": [
       {
         "components": [
+          { "internalType": "uint256", "name": "offerId", "type": "uint256" },
+          {
+            "internalType": "uint64",
+            "name": "destChainSelector",
+            "type": "uint64"
+          },
+          {
+            "internalType": "address",
+            "name": "destChainAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "tokenIn",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "tokenInAmount",
+            "type": "uint256[]"
+          },
+          { "internalType": "address[]", "name": "nftIn", "type": "address[]" },
+          {
+            "internalType": "uint256[]",
+            "name": "nftInId",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "address",
+            "name": "feeAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "ownerFulfillAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "traderFulfillAddress",
+            "type": "address"
+          },
+          { "internalType": "bool", "name": "isBridge", "type": "bool" },
+          { "internalType": "bool", "name": "isSuccess", "type": "bool" }
+        ],
+        "internalType": "struct TradeLinkCCIPV1.FulfillOffer",
+        "name": "_fulfillPayload",
+        "type": "tuple"
+      }
+    ],
+    "name": "encodedFulfill",
+    "outputs": [{ "internalType": "bytes", "name": "", "type": "bytes" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
           { "internalType": "uint256", "name": "step", "type": "uint256" },
           { "internalType": "uint256", "name": "offerId", "type": "uint256" },
           {
@@ -400,65 +440,7 @@
             "name": "fulfillOfferId",
             "type": "uint256"
           },
-          {
-            "components": [
-              {
-                "internalType": "uint256",
-                "name": "offerId",
-                "type": "uint256"
-              },
-              {
-                "internalType": "uint64",
-                "name": "destChainSelector",
-                "type": "uint64"
-              },
-              {
-                "internalType": "address",
-                "name": "destChainAddress",
-                "type": "address"
-              },
-              {
-                "internalType": "address[]",
-                "name": "tokenIn",
-                "type": "address[]"
-              },
-              {
-                "internalType": "uint256[]",
-                "name": "tokenInAmount",
-                "type": "uint256[]"
-              },
-              {
-                "internalType": "address[]",
-                "name": "nftIn",
-                "type": "address[]"
-              },
-              {
-                "internalType": "uint256[]",
-                "name": "nftInId",
-                "type": "uint256[]"
-              },
-              {
-                "internalType": "address",
-                "name": "feeAddress",
-                "type": "address"
-              },
-              {
-                "internalType": "address",
-                "name": "ownerFulfillAddress",
-                "type": "address"
-              },
-              {
-                "internalType": "address",
-                "name": "traderFulfillAddress",
-                "type": "address"
-              },
-              { "internalType": "bool", "name": "isBridge", "type": "bool" },
-              { "internalType": "bool", "name": "isSuccess", "type": "bool" }
-            ],
-            "internalType": "struct TradeLinkCCIPV1.FulfillOffer",
-            "name": "fulfillInfo",
-            "type": "tuple"
-          }
+          { "internalType": "bytes", "name": "fulfillInfo", "type": "bytes" }
         ],
         "internalType": "struct TradeLinkCCIPV1.MessagePayload",
         "name": "_messagePayload",
@@ -536,65 +518,7 @@
             "name": "fulfillOfferId",
             "type": "uint256"
           },
-          {
-            "components": [
-              {
-                "internalType": "uint256",
-                "name": "offerId",
-                "type": "uint256"
-              },
-              {
-                "internalType": "uint64",
-                "name": "destChainSelector",
-                "type": "uint64"
-              },
-              {
-                "internalType": "address",
-                "name": "destChainAddress",
-                "type": "address"
-              },
-              {
-                "internalType": "address[]",
-                "name": "tokenIn",
-                "type": "address[]"
-              },
-              {
-                "internalType": "uint256[]",
-                "name": "tokenInAmount",
-                "type": "uint256[]"
-              },
-              {
-                "internalType": "address[]",
-                "name": "nftIn",
-                "type": "address[]"
-              },
-              {
-                "internalType": "uint256[]",
-                "name": "nftInId",
-                "type": "uint256[]"
-              },
-              {
-                "internalType": "address",
-                "name": "feeAddress",
-                "type": "address"
-              },
-              {
-                "internalType": "address",
-                "name": "ownerFulfillAddress",
-                "type": "address"
-              },
-              {
-                "internalType": "address",
-                "name": "traderFulfillAddress",
-                "type": "address"
-              },
-              { "internalType": "bool", "name": "isBridge", "type": "bool" },
-              { "internalType": "bool", "name": "isSuccess", "type": "bool" }
-            ],
-            "internalType": "struct TradeLinkCCIPV1.FulfillOffer",
-            "name": "fulfillInfo",
-            "type": "tuple"
-          }
+          { "internalType": "bytes", "name": "fulfillInfo", "type": "bytes" }
         ],
         "internalType": "struct TradeLinkCCIPV1.MessagePayload",
         "name": "_messagePayload",
@@ -627,9 +551,7 @@
         "internalType": "address",
         "name": "_feeTokenAddress",
         "type": "address"
-      },
-      { "internalType": "address", "name": "_ccipAddress", "type": "address" },
-      { "internalType": "uint256", "name": "_ccipAmount", "type": "uint256" }
+      }
     ],
     "name": "getFeeOffer",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],

@@ -1,3 +1,21 @@
+type CreateFulfill @entity(immutable: true) {
+  id: Bytes!
+  fulfillId: BigInt! # uint256
+  ownerFulfill: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type CreateOffer @entity(immutable: true) {
+  id: Bytes!
+  offerId: BigInt! # uint256
+  ownerOffer: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
 type OwnershipTransferRequested @entity(immutable: true) {
   id: Bytes!
   from: Bytes! # address
