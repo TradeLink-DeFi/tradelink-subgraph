@@ -4,5 +4,17 @@
       "address": "0x6Cc3f2e4672FcB347c4878C4702df60048827072",
       "startBlock": 4853390
     }
+  },
+  "mumbai": {
+    "TradeLinkCCIPV1": {
+      "address": "0xf5baF435A186f26C764d2FEc238Bab71Af62aE1A",
+      "startBlock": 43370920
+    }
+  },
+  "fuji": {
+    "TradeLinkCCIPV1": {
+      "address": "0x57Ab29018003d6288B7572501FD8587Dbc345F1f",
+      "startBlock": 28430732
+    }
   }
 }

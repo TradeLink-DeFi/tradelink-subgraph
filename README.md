@@ -14,8 +14,8 @@ op => https://api.thegraph.com/subgraphs/name/supanut1911/tradelink-nft-optimism
 
 Subgraph trade-status-checker
 
-sepolia => https://api.studio.thegraph.com/query/59650/tradelink-trade-status-checker/v0.0.1
+sepolia => https://api.studio.thegraph.com/query/59650/v2tradelink-trade-statue-cker/sepolia
 
-mumbai => https://api.studio.thegraph.com/query/59650/tradelink-trade-status-checker/v0.0.2
+mumbai => https://api.studio.thegraph.com/query/59650/v2tradelink-trade-statue-cker/mumbai
 
-fuji => mumbai => https://api.studio.thegraph.com/query/59650/tradelink-trade-status-checker/v0.0.3
+fuji => mumbai => https://api.studio.thegraph.com/query/59650/v2tradelink-trade-statue-cker/fuji

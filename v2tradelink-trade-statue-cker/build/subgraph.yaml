@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: TradeLinkCCIPV1
@@ -21,7 +21,7 @@ dataSources:
         - Success
       abis:
         - name: TradeLinkCCIPV1
-          file: ./abis/TradeLinkCCIPV1.json
+          file: TradeLinkCCIPV1/abis/TradeLinkCCIPV1.json
       eventHandlers:
         - event: CreateFulfill(uint256,address)
           handler: handleCreateFulfill
@@ -33,4 +33,4 @@ dataSources:
           handler: handleOwnershipTransferred
         - event: Success(uint256,uint256,uint64,uint64,address,address)
           handler: handleSuccess
-      file: ./src/trade-link-ccipv-1.ts
+      file: TradeLinkCCIPV1/TradeLinkCCIPV1.wasm
